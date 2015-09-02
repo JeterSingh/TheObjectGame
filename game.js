@@ -1,36 +1,33 @@
-var health = 100;
-var name = "Jedi";
-var hits = 0;
-document.getElementById('hits').innerText = hits;
-function slap() {
-   health = health - 1;
-   health = Math.max(health,0);
-   hits++;   
-   update();
-}
-
-function punch() {
-   health = health - 5;
-   health = Math.max(health,0);
-   hits++;
-   update();
-}
-
-function kick() {
-   health = health - 10;
-   health = Math.max(health,0);
-   hits++;
-   update();
+var player = {
+    health: 100,
+    name: "Jedi",
+    hits: 0,
+    damage: function (x) {
+        this.health -= x;
+        this.health = Math.max(this.health, 0);
+        this.hits++;
+        update();
+    },
+    slap: function () {
+       
+        this.damage(1);
+    },
+    punch: function () {
+        this.damage(5);
+    },
+    kick: function () {
+        this.damage(10);
+    }
 }
 
 function update() {
-   document.getElementById('health').innerText = health;
-   document.getElementById('hits').innerText = hits;
-   document.getElementById('name').innerText = name;
+    document.getElementById('health').innerText = player.health.toString();
+    document.getElementById('hits').innerText = player.hits.toString();
+    document.getElementById('name').innerText = player.name.toString();
 }
 
 function reset() {
-   hits=0;
-   health = 100;
-   update();
+    player.hits = 0;
+    player.health = 100;
+    player.update();
 }
