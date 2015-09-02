@@ -4,7 +4,7 @@ var hits = 0;
 function slap() {
    health = health - 1;
    health = Math.max(health,0);
-   hits++;
+   hits++;   
    update();
 }
 
@@ -23,7 +23,7 @@ function kick() {
 }
 
 function update() {
-   document.getElementById('health').innerText=health;
-   document.getElementById('hits').innerText=hits;
+   document.getElementById('health').innerText = health;
+   document.getElementById('hits').innerText = hits;
 }
 
