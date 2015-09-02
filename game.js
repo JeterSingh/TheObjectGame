@@ -1,3 +1,4 @@
+//Ranjit, Marty, River
 var player = {
     health: 100,
     name: "Jedi",
@@ -8,8 +9,7 @@ var player = {
         this.hits++;
         update();
     },
-    slap: function () {
-       
+    slap: function () {      
         this.damage(1);
     },
     punch: function () {
@@ -20,14 +20,15 @@ var player = {
     }
 }
 
+document.getElementById('name').innerText = player.name.toString(); // name does not need to be in update function
+
 function update() {
     document.getElementById('health').innerText = player.health.toString();
-    document.getElementById('hits').innerText = player.hits.toString();
-    document.getElementById('name').innerText = player.name.toString();
+    document.getElementById('hits').innerText = player.hits.toString(); 
 }
 
 function reset() {
     player.hits = 0;
     player.health = 100;
-    player.update();
+    update();
 }
